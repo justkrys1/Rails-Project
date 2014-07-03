@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <title>Rails</title>
+  <%= stylesheet_link_tag 'home', media: 'all' %>
+  <%= stylesheet_link_tag 'shared', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<h1 id= 'header'>Pure Fishing...<span id= 'logo'>everything you need to catch the big one!</span></h1><br />
+<%= render :partial => 'shared/nav' %>
+
+&nbsp; &nbsp;<hr><hr><hr><hr><hr>
+
+<%= yield %>
+
+<!--<footer id = 'copyright'><span id='legal'>Pure Fishing/Copyright 2013/Legal Stuff/Privacy Policy</span></footer>-->
+
+</body>
+</html>

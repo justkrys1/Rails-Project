@@ -1,0 +1,230 @@
+/*This stylesheet contains the header, nav, and breadcrumbs CSS shared by all html pages*/
+
+body{
+    min-height:100%;
+  background-color: #dbe8c5;
+}
+p 			{
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			font-size: 14px;
+			border: 2px solid #630c36;
+			}
+#header 		{
+			text-shadow: 1px 1px 4px #828282;
+			background-color: #432888; 
+			font-family: papyrus, "Lucida Calligraphy", "Lucida Bright", "Lucida Sans";
+			color: red;
+            font-weight: bold;			
+			border: 5px solid #630c36;
+			width: auto;
+			text-align: left;
+            padding: 10px;			
+			-webkit-box-shadow: 5px 5px 5px #828282;
+			-moz-box-shadow: 5px 5px 5px #828282;
+			box-shadow: 5px 5px 5px #828282;
+			display: block;
+			margin-bottom: 10px;
+            }
+#info 		{
+			font-size: 14px;
+			color: black; 
+			border: 0; 
+			margin: 0;
+			}
+#logo       	{
+			font-size: .50em;
+			color: white; 
+			font-family: "Lucida Sans", "Lucida Bright", Arial;
+			}
+hr 			{
+			color: #630c36;
+			}
+#nav		{
+  font-family: Papyrus, "Lucida Calligraphy", "Lucida Bright", "Lucida Sans";
+  list-style:none;
+  font-weight:bold;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  text-align: center;
+  width: 100px;
+  padding-left: 30px;
+  margin-top: 0;
+  float:left;
+  border: 3px ridge #6b0c36;
+  background:#4a58a4;
+  -webkit-box-shadow: 5px 5px 5px #828282;
+  -moz-box-shadow: 5px 5px 5px #828282;
+  box-shadow: 5px 5px 5px #828282;
+}
+
+#nav li		{
+  float:left;
+  margin-right:10px;
+  position:relative;
+}
+#nav a		{
+  display:block;
+  padding:5px;
+  color:#fff;
+
+  text-decoration:none;
+}
+#nav a:hover	{
+  color:#78a778;
+
+  text-decoration:underline;
+}
+
+#nav ul		{
+
+  list-style:none;
+  position:absolute;
+  left:-9999px; }
+
+#nav ul li		{
+  text-align: left;
+  padding-top:1px;
+  float:none;
+}
+#nav ul a		{
+  white-space:nowrap;
+}
+#nav li:hover ul{
+  left:0;
+}
+#nav li a:hover{
+  background:#6b0c36;
+  text-decoration:underline;
+  color: #78a778;
+}
+#nav li:hover, ul a{
+  text-decoration:none;
+}
+#nav li:hover, ul li a:hover{
+  background:#333;
+}
+#nav ul		{
+  background: #dbe8c5;
+  list-style:none;
+  position:absolute;
+  left:-9999px;
+}
+#nav ul li		{
+  padding-top:1px;
+  float:none;
+}
+#nav ul a		{
+  white-space:nowrap;
+}
+#nav li:hover ul{
+  left:0;
+}
+#nav li:hover a{
+  background:#6b0c36;
+
+}
+#nav ul li a:hover{
+  background:#333;
+
+}
+
+.copyright ul, li {
+			padding:0;
+			margin:0;
+			}
+
+.copyright {
+			font-family: papyrus, "Lucida Calligraphy", "Lucida Bright", "Lucida Sans";
+			height:1.7em; 
+			color: #630c36;
+			font-weight: bold;
+			}
+
+.copyright li {
+			list-style-type:none;
+			float:left;
+			line-height:1.7em;
+			color:#777;
+			padding-left:.85em;
+			}
+
+.copyright li a {
+			display:block;
+			padding:0 5px 0 0;
+			}
+
+.copyright li a:link,
+.copyright li a:visited {
+			color: #630c36;
+			text-decoration:none;
+			}
+
+a:link, a:visited,      
+.copyright li a:hover,
+.copyright li a:focus {
+			color:red;
+			}
+tr {
+  background-color: #9fa2c4;
+  color: #1b29e1;
+
+}
+
+
+
+
+#space{
+  padding: 10px;
+}
+.error {
+  color: red;
+}
+table{
+  -webkit-box-shadow: 5px 5px 5px #828282;
+  -moz-box-shadow: 5px 5px 5px #828282;
+  box-shadow: 5px 5px 5px #828282;
+  padding: 20px;
+  background-color: lavender;
+  width: auto;
+  height:auto;
+}
+table p{border:0;}
+th {
+  color: yellowgreen;
+  font-family: Arial, sans-serif, Helvetica;
+  text-shadow: 1px 1px 4px #828282;
+
+}
+td {
+  color: black;
+  border: double 2px yellowgreen;
+}
+td:hover {
+  background-color: yellowgreen;
+}
+#wide td{
+  width: 50px;
+  height:35px;
+}
+.imgsmall {
+  width: 60px;
+  height:50px;
+}
+.imglarge {
+  width: 450px;
+  height:250px;
+}
+.color{
+  background-color: #dbe8c5;
+}
+.align{
+  margin-left: 200px;
+}
+.pagination{
+  font-family: Arial, sans-serif, Helvetica;
+  font-weight: bold;
+  background-color: yellowgreen;
+}
+.wide {
+  width: 300px;
+}

@@ -1,0 +1,82 @@
+
+<p id="notice"><%= notice %></p>
+
+  <% if current_user.try( :admin? ) %>
+      <%= link_to 'Back to Products Table', product_path %>
+  <% else %>
+      <%= link_to 'Back', store_index_path %>
+  <% end %> <br/>
+  <section class='align'>
+    <strong>Average Rating:</strong> <%= stars( @product.reviews.average(:rating).round) %><br/><br/>
+
+  <strong>Name:</strong>
+  <%= @product.name %><br/><br/>
+
+
+
+  <strong>Description:</strong>
+  <%= @product.description.html_safe %><br/><br/>
+
+
+
+  <strong>In Stock:</strong>
+  <%= @product.qty %><br/><br/>
+
+
+
+  <strong>Price:</strong>
+  <%= @product.price %> <br/><br/>
+
+
+
+  <strong>Weight:</strong>
+  <%= @product.weight %> <br/> <br/>
+
+
+
+  <strong>Fullsize Image:</strong>
+  <%= image_tag @product.fullsize, :class=>'imglarge' %><br/> <br/>
+
+</section>
+<h1 class='pagination'>Reviews:</h1>
+<% @product.reviews.each do |review| %>
+    <h3><%= time_ago_in_words(review.created_at) %> ago,</h3>
+    <h3><%= review.name %> said:</h3>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.content %></h4>
+    <h3><%= stars(review.rating) %></h3>
+    <h5><%#= link_to 'Delete Review', review, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+    <h1></h1>
+    <hr>
+<% end %>
+<%= form_for([@product, @review] ) do |f| %>
+    <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+          <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </div>
+    <div class="field">
+      <%= f.label :rating %><br>
+      <%= f.number_field :rating, :in => 1..10 %>
+    </div>
+      <%= f.hidden_field :product %>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

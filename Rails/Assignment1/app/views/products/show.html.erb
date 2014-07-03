@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+  <%= link_to 'Back to Products Table', products_path %> <br/><br/>
+<section class='align'>
+  <strong>Average Rating:  </strong><%= stars( @product.reviews.average(:rating).round) %><br/> <br/>
+  <strong>Name:</strong>
+  <%= @product.name %><br/> <br/>
+
+
+
+  <strong>Description:</strong>
+  <%= @product.description.html_safe %><br/><br/>
+
+
+
+  <strong>Qty:</strong>
+  <%= @product.qty %><br/> <br/>
+
+
+
+  <strong>Price:</strong>
+  <%= @product.price %><br/> <br/>
+
+<% if current_user.try( :admin? ) %>
+
+  <strong>Cost:</strong>
+  <%= @product.cost %>  <br/> <br/>
+
+<% end %>
+
+  <strong>Weight:</strong>
+  <%= @product.weight %>  <br/> <br/>
+  <strong>Fullsize Image:</strong>
+  <%= image_tag @product.fullsize, :class=>'imglarge' %> <br/> <br/>
+  <% if current_user.try( :admin? ) %>
+      <%= link_to 'Edit Product', edit_product_path(@product) %>
+  <% end %>
+</section>
+<h2 class='pagination'>Product Reviews:</h2>
+<% @product.reviews.descending.each do |review| %>
+    <h3><%= time_ago_in_words(review.created_at) %>ago,</h3>
+    <h3><%= review.name %> said:</h3>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.content %></h4>
+    <h3><%= stars(review.rating) %></h3>
+    <% if is_admin? %>
+        <h5><%= link_to 'Delete Review', product_review_path( @product, review), :confirm => 'Confirm delete?', :method => :delete %></h5>
+    <% end %>
+    <hr>
+<% end %>
+
+

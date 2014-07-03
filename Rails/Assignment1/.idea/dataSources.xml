@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2202572093">
+    <data-source source="LOCAL" name="Rails Assignment1: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="5963cf74-37a4-4f2a-850f-aba5b1779baf">
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:E:\Rails_assignment01\Krys Product Review\Assignment1\db\development.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://C:/Users/1-1116/.RubyMine/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>jar://C:/Users/1-1116/.RubyMine/config/jdbc-drivers/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar!/</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails Assignment1: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="582880de-3aa2-4962-92ad-b5966319981a">
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:E:\Rails_assignment01\Krys Product Review\Assignment1\db\test.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>jar://$USER_HOME$/.RubyMine50/config/jdbc-drivers/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar!/</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

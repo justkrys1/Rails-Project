@@ -1,0 +1,44 @@
+<h1>Articles</h1>
+<p id="notice"><%= notice %></p>
+<div class="pagination"><%= paginate @editorials %> </div>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Date</th>
+    <th>Published</th>
+    <th>Content</th>
+    <th>Image</th>
+    <% if current_user.try( :admin? ) %>
+        <th colspan=4>Functions</th>
+    <% else %>
+        <th>Show</th>
+    <%end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @editorials.each do |editorial| %>
+      <tr>
+        <td><%= editorial.title %></td>
+        <td><%= editorial.author %></td>
+        <td><%= editorial.date %></td>
+        <td><%= editorial.published %></td>
+        <td><%= editorial.content.html_safe %></td>
+        <%#= truncate(editorial.content.html_safe, :length => 20).html_safe %>
+        <td><%= link_to(image_tag(editorial.image, :class=> 'imgsmall'), editorial) %></td>
+        <td><%= link_to 'Show', editorial %></td>
+        <% if current_user.try( :admin? ) %>
+            <td><%= link_to 'Edit', edit_editorial_path(editorial) %></td>
+            <td><%= link_to 'Destroy', editorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Email', spam_editorial_path(editorial) %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_editorial_path %>

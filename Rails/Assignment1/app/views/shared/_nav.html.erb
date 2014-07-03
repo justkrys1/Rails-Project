@@ -1,0 +1,24 @@
+<nav>
+  <ul id='nav'>
+    <li>
+      <%= link_to 'Home', index_path %>
+      <%= link_to 'About Us', about_path %>
+      <%= link_to 'Articles', editorials_path %>
+      <%= link_to 'Blogs', blogs_path %>
+      <%= link_to 'Calendar', calendar_path %>
+      <%= link_to 'Contact Us', contact_path %>
+      <% if user_signed_in? %>
+          <%= link_to 'Products', products_path %>
+          <%= link_to 'Preferences', edit_user_registration_path %>
+          <%= link_to 'LogOut', destroy_user_session_path, :method => :delete %>
+      <% else %>
+          <%= link_to 'Products', store_index_path %>
+          <%= link_to 'LogIn', new_user_session_path %>
+      <% end %>
+
+    </li>
+  </ul>
+</nav>
+<% if user_signed_in? %>
+    <h2 class='error'>Logged in as: <%= current_user.full_name %></h2><br/>
+<% end %>

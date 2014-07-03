@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Created:</strong>
+  <%= @comment.created_at %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @comment.author %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @comment.rating %>
+</p>
+
+
+<%= link_to 'Back', blog_path %>

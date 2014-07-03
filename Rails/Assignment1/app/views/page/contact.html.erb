@@ -1,0 +1,39 @@
+<% if flash['error'] %>
+    <div class='error'><%= flash['error'] %></div><br/>
+<% end %>
+
+
+
+<% if !@submitted || @form_error %>
+    <%= form_for contact_path, :method => "POST" do %>
+     <table> <caption><h1>Contact Form</h1></caption>
+         <tr><td><%= label_tag :name, "Name: " %>
+            <%= text_field_tag :name, @name, :autofocus => 'autofocus', :placeholder => "Enter your full name" %><br/></td></tr>
+         <tr> <td><%= label_tag :email, "Email : " %>
+            <%= email_field_tag :email, @email, :placeholder => "something@domain.com" %></td></tr>
+         <tr><td><%= label_tag :phone, "Phone: " %>
+            <%= number_field_tag :phone, @phone, :placeholder => "(000)000-0000" %></td></tr>
+
+       <tr><td>   <%= radio_button_tag :contact, "email", @email1 %>Email
+            <%= radio_button_tag :contact, "phone", @phone1 %>Phone </td> </tr>
+         <tr><td><%= check_box_tag :mailing_list, "mailing_list", @mailing_list %>
+            Please add me to your mailing list<br/> </td> </tr>
+         <tr><td><%= check_box_tag :new, "new", @new %>
+            Please contact me about new products:</td> </tr>
+         <tr><td><%= collection_select(:product, :name, Product.all, :name, 'name') %> </td></tr>
+
+         <tr><td><%= label_tag :question, "Questions/Comments: " %>
+             <%= text_area_tag :question, @question %> <br/></td></tr>
+         <tr><td><%= submit_tag 'Ok' %>    </td> </tr>
+     </table>
+    <% end %>
+
+<% else %>
+    Thanks for your information. And for those of you who are fishing adventurists, please feel free to peruse our Products page where you'll find a wide array of skiing equipment because real men don't fish sitting down...they do it on the slopes!<br/>
+    Name: <%= @name %> <br/>
+    Email: <%= @email %><br/>
+    Phone: <%= @phone %><br/>
+    Products Interested In: <%= @products %><br/>
+    We will contact you by <%= @contact %>!<br/>
+
+<% end %>

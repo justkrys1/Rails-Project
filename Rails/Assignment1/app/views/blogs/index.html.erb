@@ -1,0 +1,39 @@
+<h1>Blogs</h1>
+<%= link_to 'New Blog', new_blog_path %>
+<%= paginate @blogs %>
+<table>
+
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Date</th>
+    <th>Content</th>
+    <% if current_user.try( :admin? ) %>
+        <th colspan=3>Functions</th>
+    <% else %>
+        <th>Show</th>
+    <%end %>
+  </tr>
+
+
+
+  <% @blogs.each do |blog| %>
+      <tr>
+        <%#= time_ago_in_words(blog.date) %>
+        <td style='width:200px;'><%= blog.title %></td>
+        <td style='width:150px;'><%= blog.author %></td>
+        <td style='width:20px;'><%= blog.date %></td>
+        <td><%= blog.content.html_safe %></td>
+        <td style='width:30px;'><%= link_to 'Show', blog %></td>
+        <% if current_user.try( :admin? ) %>
+            <td style='width:30px;'><%= link_to 'Edit', edit_blog_path(blog) %></td>
+            <td style='width:30px;'><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+  <% end %>
+
+</table>
+
+<br>
+
+

@@ -1,0 +1,40 @@
+<h1>Store</h1>
+
+<div class="pagination"><%= paginate @products %> </div>
+<table>
+  <thead>
+  <tr>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>Weight</th>
+    <th>Thumbnail</th>
+    <th colspan=3>Functions</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.name, store_show_path( product.id ) %></td>
+        <td><%= product.description.html__safe %></td>
+        <%#= truncate(product.description, :length => 20) %>
+        <td><%= product.qty %></td>
+        <td><%= product.price %></td>
+        <td><%= product.weight %></td>
+        <td><%= link_to(image_tag(product.thumbnail, :class=> 'imgsmall'), store_show_path( product.id )) %></td>
+        <% if current_user.try( :admin? ) %>
+            <td><%= link_to 'Show', product_path( product.id ) %></td>
+        <% else %>
+            <td><%= link_to 'Show', store_show_path( product.id ) %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
